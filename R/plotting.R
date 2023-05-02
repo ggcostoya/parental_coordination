@@ -166,7 +166,7 @@ coord_data$bye_dad <- ifelse(coord_data$m_visit_rate == 0, 1, 0)
 
 # plot
 coord_data %>%
-  filter(site != "R") %>% # remove if you want to see rural
+  #filter(site != "R") %>% # remove if you want to see rural
   ggplot(aes(x = site, y = bye_dad, col = trt, fill = trt)) +
   geom_point(position = position_jitterdodge(), size = 3, alpha = 0.5) +
   stat_summary(fun = "mean", geom = "point", size = 8,
@@ -191,7 +191,7 @@ fvm_abandonment <- coord_data %>%
 
 # Nest abandonment probability by site, trt and sex
 fvm_abandonment %>%
-  filter(site != "R") %>%
+  #filter(site != "R") %>%
   ggplot(aes(x = site, y = prob, col = trt)) +
   geom_point(aes(shape = who), position = position_jitterdodge(), size = 6) +
   facet_grid(cols = vars(stage)) +
